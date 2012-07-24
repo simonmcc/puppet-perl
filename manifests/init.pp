@@ -53,7 +53,7 @@ define perl::cpan_load_by_name() {
   # this is included as a class as a class is only applied to a node once in the evaluation
   # where as te custom type perl::cpan_load will be applied multiple times
   # causing "Duplicate definition" errors
-  include cpan_config
+  require perl::cpan_config
 
   exec{"cpan_load_by_name_${title}":
     path    => "/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
@@ -74,7 +74,7 @@ define perl::cpan_version($package, $version) {
   # this is included as a class as a class is only applied to a node once in the evaluation
   # where as te custom type perl::cpan_load will be applied multiple times
   # causing "Duplicate definition" errors
-  include perl::cpan_config
+  require perl::cpan_config
 
   exec{"cpan_load_by_version_${title}":
     #
